@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { LocalStorageController } from './utils/controller';
+import { NavBar } from './components/NavBar';
+import { Registro } from './pages/registro';
+import { Livros } from './pages/livros';
+import { Sobre } from './pages/sobre';
+import { Home } from './pages/home';
 
 function App() {
+  const controller = new LocalStorageController("livros");
+  const livros = controller.listar();
+
+  console.log(livros);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+      <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/livros" element={<Livros />} />
+          <Route path="/cadastro/livro" element={<Registro />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
