@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Nome: Lucas Borges da Silva
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto Reading Journal PUCRS
 
-## Available Scripts
+## Como executar?
 
-In the project directory, you can run:
+Extraia o arquivo .zip, em seguida, acesse a pasta com o comando:
 
-### `npm start`
+```bash
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+cd projeto-etapa-02-pucrs
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+execute o seguinte comando para instalar as dependências:
 
-### `npm test`
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Após isso, execute o seguinte comando para que possa acessar o projeto em seu navegador web:
 
-### `npm run build`
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aguarde o terminal informar a conclusão do carregamento e acesse `localhost:3000` em seu navegador para visualizar o projeto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Imagens do Projeto
 
-### `npm run eject`
+> Tela inicial
+ ![image](./docs/img/home.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> Sobre
+ ![image](./docs/img/sobre.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> Adicionar Livro
+ ![image](./docs/img/cadastro.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> Lista de Livros
+ ![image](./docs/img/listagem.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> Atualizar Livro
+ ![image](./docs/img/atualizacao.png)
 
-## Learn More
+## Introdução
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este projeto, chamado "Reading Journal PUCRS", foi desenvolvido para demonstrar uma aplicação de registro e exibição de livros. Ele utiliza uma estrutura simples com armazenamento em LocalStorage para registrar e exibir livros, funcionando de forma dinâmica.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Componentes
 
-### Code Splitting
+- **_BookForm_**
+  - Componente responsável por renderizar o formulário de registro de novos livros na aplicação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **_BookEdit_**
 
-### Analyzing the Bundle Size
+  - Componente responsável por renderizar o formulário de edição de livros já registrados
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **_BookList_**
+  - Componente o qual realiza a exebição dos livros armazenados em memória, funciona dinamicamente atráves de requisições na API.
 
-### Making a Progressive Web App
+- **_ConfirmModal_**
+  - Componente responsável por renderizar um modal de confirmação, o qual é utilizado para confirmar uma escolha do usuário e ramificar a ação.
+  - *Atributos*
+    - `title` - Título do modal
+    - `description` - Mensagem do modal
+    - `onClickYes` - Função a ser executada ao clicar no botão de confirmação
+    - `onClickNo` - Função a ser executada ao clicar no botão de cancelamento
+    - `handleClose` - Função a ser executada ao fechar o modal
+    - `open` - Estado do modal, aberto ou fechado
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **_NavBar_**
+  - Barra de navegação localizada no cabeçalho, barra a qual possui as rotas para todas outras páginas da aplicação e está sempre visível no topo de todas.
+  
 
-### Advanced Configuration
+## Decisões do Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - Decidi por condensar todas rotas da navbar em um item de menu, o qual ao ser clicado, abre um menu dropdown com todas as opções de navegação. Tornando assim a navegação mais limpa e organizada para usuários em diferentes dispositivos.
